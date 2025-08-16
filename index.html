@@ -77,6 +77,24 @@
       border-radius: 0 0 20px 20px;
     }
   </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '740635385606699');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=740635385606699&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <div class="container">
@@ -88,7 +106,11 @@
       <p>🏆 <span>42/44 Hundred Man Matches Passed Record</span></p>
     </div>
     
-    <a href="https://t.me/YOURCHANNEL" class="btn">JOIN TELEGRAM</a>
+    <a href="https://t.me/+UaaP8C-eQr1lMDFl" 
+       class="btn" 
+       onclick="fbq('track', 'Subscribe');">
+       JOIN TELEGRAM
+    </a>
 
     <img src="5b80d786-36a7-449c-ab51-acba08d35a6a.jpg" alt="Boss Image" class="footer-img">
   </div>
