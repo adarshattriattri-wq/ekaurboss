@@ -3,118 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boss Fire Landing Page</title>
+  <title>Landing Page</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('https://img.freepik.com/premium-photo/cricket-stadium-full-light-night-3d-rendering-illustration_691560-4392.jpg') no-repeat center center/cover;
-      color: white;
+      height: 100vh;
+      background: url('https://img.freepik.com/premium-photo/cricket-stadium-full-light-night-3d-rendering_476612-17419.jpg') no-repeat center center/cover;
       display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      background: rgba(0,0,0,0.7);
-      border-radius: 20px;
-      overflow: hidden;
-      width: 380px;
-      max-width: 95%;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-      text-align: center;
-      padding-bottom: 20px;
-    }
-
-    .header {
-      background: red;
       color: white;
-      font-weight: bold;
-      padding: 12px;
-      font-size: 18px;
+      text-align: center;
     }
 
-    .stats {
-      padding: 20px;
-      text-align: left;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .stats p {
-      margin: 12px 0;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-    }
-
-    .stats p span {
-      margin-left: 10px;
+    .content {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 12px;
     }
 
     .btn {
-      display: inline-block;
-      background: #007bff;
+      background: #0088cc; /* Telegram blue */
       color: white;
-      padding: 14px 28px;
-      margin: 20px 0;
+      padding: 15px 30px;
+      border: none;
       border-radius: 8px;
       font-size: 18px;
-      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
       text-decoration: none;
-      transition: 0.3s;
+      display: inline-block;
     }
 
     .btn:hover {
-      background: #0056b3;
-    }
-
-    .footer-img {
-      width: 100%;
-      border-top: 3px solid #444;
-      margin-top: 10px;
-      border-radius: 0 0 20px 20px;
+      background: #006da8;
     }
   </style>
 
-  <!-- Meta Pixel Code -->
+  <!-- Facebook Pixel Code -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '740635385606699');
-  fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // Replace with your Pixel ID
+    fbq('track', 'PageView');
   </script>
-  <!-- End Meta Pixel Code -->
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
 </head>
 <body>
-  <div class="container">
-    <div class="header">BOSS NAME NAHI BRAND HAI!!!</div>
+  <div class="content">
+    <h1>Welcome to Our Landing Page</h1>
+    <p>Cricket vibes, winning predictions & more!</p>
     
-    <div class="stats">
-      <p>🏆 <span>68/74 IPL Matches Passed Record</span></p>
-      <p>🏆 <span>34/37 Womens BBL Matches Passed Record</span></p>
-      <p>🏆 <span>42/44 Hundred Man Matches Passed Record</span></p>
-    </div>
-    
-    <!-- Button without Purchase Event -->
-    <a href="https://t.me/+UaaP8C-eQr1lMDFl" class="btn">
-       JOIN TELEGRAM
-    </a>
-
-    <img src="5b80d786-36a7-449c-ab51-acba08d35a6a.jpg" alt="Boss Image" class="footer-img">
+    <!-- Join Telegram Button -->
+    <a href="https://t.me/+UaaP8C-eQr1lMDFl" 
+       class="btn" 
+       id="telegramBtn" 
+       target="_blank">Join Telegram</a>
   </div>
 
-  <!-- Noscript Pixel -->
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=740635385606699&ev=PageView&noscript=1"/>
-  </noscript>
+  <script>
+    // Fire Subscribe event when button is clicked
+    document.getElementById('telegramBtn').addEventListener('click', function() {
+      fbq('track', 'Subscribe');
+    });
+  </script>
 </body>
 </html>
