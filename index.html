@@ -17,6 +17,7 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '740635385606699');
     fbq('track', 'PageView');
+    console.log("✅ Meta Pixel Loaded & PageView fired");
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
@@ -67,7 +68,7 @@
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       margin-bottom: 10px;
       color: #0088cc;
     }
@@ -75,6 +76,7 @@
     p {
       font-size: 1.1rem;
       margin-bottom: 20px;
+      max-width: 400px;
     }
 
     /* Telegram CTA Button */
@@ -82,7 +84,7 @@
       position: relative;
       background: #0088cc;
       border: none;
-      padding: 14px 30px;
+      padding: 14px 32px;
       font-size: 1.2rem;
       border-radius: 10px;
       cursor: pointer;
