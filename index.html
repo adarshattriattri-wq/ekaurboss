@@ -3,178 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔥 Boss Fire – Cricket Insights & Predictions 🔥</title>
+  <title>🔥 Boss Fire – Fast Background 🔥</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body, html {
       height: 100%;
-      width: 100%;
-      font-family: "Poppins", Arial, sans-serif;
-      background: #000;
-      color: #fff;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
     }
 
-    /* Background Slideshow */
+    /* Fast Background Slideshow */
     .slideshow {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      background-size: cover;
+      background-position: center;
+      animation: slideshow 4s infinite;
     }
 
-    .slideshow img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      animation: fade 16s infinite;
-    }
-    .slideshow img:nth-child(1) { animation-delay: 0s; }
-    .slideshow img:nth-child(2) { animation-delay: 4s; }
-    .slideshow img:nth-child(3) { animation-delay: 8s; }
-    .slideshow img:nth-child(4) { animation-delay: 12s; }
-
-    @keyframes fade {
-      0% { opacity: 0; }
-      5% { opacity: 1; }
-      25% { opacity: 1; }
-      30% { opacity: 0; }
-      100% { opacity: 0; }
+    @keyframes slideshow {
+      0%   { background-image: url('https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png'); }
+      25%  { background-image: url('https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg'); }
+      50%  { background-image: url('https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg'); }
+      75%  { background-image: url('https://i.postimg.cc/DwJYFD4W/Ideal-Institute-of-Technology-IIT-Ghaziabad-1-395c2d10ea.jpg'); }
+      100% { background-image: url('https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png'); }
     }
 
     /* Overlay Content */
     .overlay {
-      background: rgba(0, 0, 0, 0.65);
       position: relative;
       z-index: 10;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 30px;
       text-align: center;
-      padding: 40px 20px;
-    }
-
-    .overlay img {
-      width: 120px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      box-shadow: 0 0 15px rgba(255, 69, 0, 0.8);
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       margin-bottom: 10px;
-      color: #ff4500;
-      text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+      color: #0088cc;
     }
 
-    p {
-      max-width: 450px;
-      margin: 10px auto 25px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
+    /* Telegram CTA Button */
     .cta-btn {
-      background: linear-gradient(135deg, #ff4500, #e03e00);
-      color: white;
+      position: relative;
+      background: #0088cc;
       border: none;
-      padding: 14px 28px;
+      padding: 14px 30px;
       font-size: 1.2rem;
-      font-weight: bold;
       border-radius: 10px;
       cursor: pointer;
-      transition: 0.3s;
+      margin-top: 20px;
+      color: white;
       text-decoration: none;
+      font-weight: bold;
+      overflow: hidden;
       display: inline-block;
-    }
-    .cta-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
+      animation: wiggle 3s infinite; /* wiggle loop */
     }
 
-    /* Social proof / trust */
-    .trust {
-      margin-top: 30px;
-      font-size: 0.95rem;
-      color: #ddd;
-      max-width: 500px;
+    /* Wiggle Animation */
+    @keyframes wiggle {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      65% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+      85% { transform: rotate(-3deg); }
+      95% { transform: rotate(3deg); }
     }
 
-    /* Disclaimer */
+    /* Shine Effect */
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.2) 0%,
+        rgba(255,255,255,0.6) 50%,
+        rgba(255,255,255,0.2) 100%
+      );
+      transform: skewX(-25deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 125%; }
+    }
+
     .disclaimer {
       position: absolute;
-      bottom: 15px;
+      bottom: 10px;
       width: 100%;
       text-align: center;
       font-size: 0.8rem;
-      color: #ccc;
+      color: #ddd;
     }
   </style>
-
-  <!-- Facebook Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-     fbq('init', '740635385606699');
-     fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=740635385606699&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Facebook Pixel Code -->
 </head>
 <body>
 
-  <!-- Slideshow Background -->
-  <div class="slideshow">
-    <img src="https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png" alt="bg1">
-    <img src="https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg" alt="bg2">
-    <img src="https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg" alt="bg3">
-    <img src="https://i.postimg.cc/DwJYFD4W/Ideal-Institute-of-Technology-IIT-Ghaziabad-1-395c2d10ea.jpg" alt="bg4">
-  </div>
+  <!-- Background Slideshow -->
+  <div class="slideshow"></div>
 
-  <!-- Content -->
+  <!-- Overlay Content -->
   <div class="overlay">
-    <img src="https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png" alt="Boss Fire Logo">
     <h1>🔥 Boss Fire 🔥</h1>
-    <p>Get the hottest cricket vibes, exclusive match insights, and winning predictions – all in one place.</p>
-    <a href="https://t.me/+UaaP8C-eQr1lMDFl" class="cta-btn" onclick="joinTelegram()">Join Our Telegram Now</a>
-
-    <div class="trust">
-      ✅ 100% Free Insights <br>
-      ✅ Loved by Cricket Fans Worldwide <br>
-      ✅ Strictly for Fun & Entertainment Purposes
-    </div>
+    <p>Cricket vibes, winning predictions & more!</p>
+    <a href="https://t.me/+UaaP8C-eQr1lMDFl" class="cta-btn">Join Telegram</a>
   </div>
 
   <!-- Disclaimer -->
   <div class="disclaimer">
-    This website is for cricket discussion and insights only. No financial or betting advice is offered. <br>
-    Strictly – tips for entertainment purposes only.
+    This website is for cricket discussion and insights only. No financial or betting advice is offered.<br>
+    Strictly – tips for entertainment purpose only
   </div>
-
-  <script>
-    function joinTelegram() {
-      fbq('track', 'Subscribe'); // Track Subscribe Event
-    }
-  </script>
 
 </body>
 </html>
