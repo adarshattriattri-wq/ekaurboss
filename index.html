@@ -42,7 +42,7 @@
       height: 100%;
       background-size: cover;
       background-position: center;
-      animation: slideshow 4s infinite; /* 4 images → 1s each */
+      animation: slideshow 4s infinite;
     }
 
     @keyframes slideshow {
@@ -92,40 +92,25 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      overflow: hidden;
       display: inline-block;
-      animation: wiggle 3s infinite; /* wiggle loop */
+
+      /* Glow effect */
+      box-shadow: 0 0 20px rgba(0,136,204,0.8);
+
+      /* Bounce animation */
+      animation: bounce 2s infinite;
+      transition: box-shadow 0.3s ease-in-out;
     }
 
-    /* Wiggle Animation */
-    @keyframes wiggle {
-      0%, 60%, 100% { transform: rotate(0deg); }
-      65% { transform: rotate(-5deg); }
-      75% { transform: rotate(5deg); }
-      85% { transform: rotate(-3deg); }
-      95% { transform: rotate(3deg); }
+    /* Bounce Animation */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
     }
 
-    /* Shine Effect */
-    .cta-btn::before {
-      content: "";
-      position: absolute;
-      top: 0; left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0.2) 0%,
-        rgba(255,255,255,0.6) 50%,
-        rgba(255,255,255,0.2) 100%
-      );
-      transform: skewX(-25deg);
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0% { left: -75%; }
-      100% { left: 125%; }
+    .cta-btn:hover {
+      box-shadow: 0 0 30px rgba(0,136,204,1);
     }
 
     .disclaimer {
@@ -147,7 +132,11 @@
   <div class="overlay">
     <h1>🔥 Boss Fire 🔥</h1>
     <p>Cricket vibes, winning predictions & more!</p>
-    <a href="https://t.me/+UaaP8C-eQr1lMDFl" class="cta-btn">Join Telegram</a>
+    <a href="https://t.me/+UaaP8C-eQr1lMDFl" 
+       class="cta-btn" 
+       onclick="fbq('track', 'Subscribe'); console.log('✅ Meta Pixel Fired: Subscribe');">
+       Join Telegram
+    </a>
   </div>
 
   <!-- Disclaimer -->
