@@ -3,18 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BOSS FIRE</title>
+  <title>Boss Fire Landing Page</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       height: 100vh;
-      background: url('https://img.freepik.com/premium-photo/cricket-stadium-full-light-night-3d-rendering_476612-17419.jpg') no-repeat center center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       color: white;
       text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 🔹 Rotating Background Slideshow */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      animation: slideshow 24s infinite;
+      z-index: -1;
+    }
+
+    @keyframes slideshow {
+      0% { background-image: url('https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png'); }
+      25% { background-image: url('https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg'); }
+      50% { background-image: url('https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg'); }
+      75% { background-image: url('https://i.postimg.cc/DwJYFD4W/Ideal-Institute-of-Technology-IIT-Ghaziabad-1-395c2d10ea.jpg'); }
+      100% { background-image: url('https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png'); }
     }
 
     .content {
@@ -23,8 +47,19 @@
       border-radius: 12px;
     }
 
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 10px 0;
+    }
+
     .btn {
-      background: #0088cc; /* Telegram blue */
+      background: #ff4500;
       color: white;
       padding: 15px 30px;
       border: none;
@@ -37,11 +72,18 @@
     }
 
     .btn:hover {
-      background: #006da8;
+      background: #e03e00;
+    }
+
+    .disclaimer {
+      font-size: 12px;
+      color: #ccc;
+      margin-top: 30px;
+      max-width: 90%;
     }
   </style>
 
-  <!-- Facebook Pixel Code -->
+  <!-- ✅ Facebook Pixel Code with your ID -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -51,7 +93,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '740635385606699'); 
+    fbq('init', '740635385606699'); // ✅ Your Pixel ID
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
@@ -61,13 +103,20 @@
 </head>
 <body>
   <div class="content">
-    <h1>Welcome to Our Landing Page</h1>
+    <!-- 🔥 Fire Logo / GIF -->
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Fire Logo" class="logo">
+
+    <h1>🔥 Boss Fire 🔥</h1>
     <p>Cricket vibes, winning predictions & more!</p>
     
-    <!-- Join Telegram Button -->
-    <a href="https://t.me/+UaaP8C-eQr1lMDFl" 
-       class="btn" 
-       target="_blank">Join Telegram</a>
+    <!-- Join Telegram Button (same window) -->
+    <a href="https://t.me/+UaaP8C-eQr1lMDFl" class="btn">Join Telegram</a>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    This website is for cricket discussion and insights only. No financial or betting advice is offered.<br><br>
+    Strictly – tips for entertainment purpose only
   </div>
 </body>
 </html>
