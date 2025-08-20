@@ -19,26 +19,27 @@
       position: relative;
     }
 
-    /* 🔹 Rotating Background Slideshow */
-    body::before {
-      content: "";
-      position: absolute;
+    /* ✅ Preloaded Background Slideshow */
+    .slideshow {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-size: cover;
-      background-position: center;
-      animation: slideshow 24s infinite;
       z-index: -1;
     }
 
-    @keyframes slideshow {
-      0% { background-image: url('https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png'); }
-      25% { background-image: url('https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg'); }
-      50% { background-image: url('https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg'); }
-      75% { background-image: url('https://i.postimg.cc/DwJYFD4W/Ideal-Institute-of-Technology-IIT-Ghaziabad-1-395c2d10ea.jpg'); }
-      100% { background-image: url('https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png'); }
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
     }
 
     .content {
@@ -83,7 +84,13 @@
     }
   </style>
 
-  <!-- ✅ Facebook Pixel Code with your ID -->
+  <!-- ✅ Preload images for fast loading -->
+  <link rel="preload" href="https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png" as="image">
+  <link rel="preload" href="https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg" as="image">
+  <link rel="preload" href="https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg" as="image">
+  <link rel="preload" href="https://i.postimg.cc/DwJYFD4W/Ideal-Institute-of-Technology-IIT-Ghaziabad-1-395c2d10ea.jpg" as="image">
+
+  <!-- ✅ Facebook Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -93,30 +100,44 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '740635385606699'); // ✅ Your Pixel ID
+    fbq('init', '740635385606699'); 
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=740635385606699&ev=PageView&noscript=1"
   /></noscript>
-  <!-- End Facebook Pixel Code -->
 </head>
 <body>
-  <div class="content">
-    <!-- 🔥 Fire Logo / GIF -->
-    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Fire Logo" class="logo">
+  <!-- 🔹 Faster & Smoother Background Slideshow -->
+  <div class="slideshow">
+    <img src="https://i.postimg.cc/XYf722N5/Screenshot-2025-08-19-145119.png" class="active" alt="Slide 1">
+    <img src="https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg" alt="Slide 2">
+    <img src="https://i.postimg.cc/zfLNs08p/5b80d786-36a7-449c-ab51-acba08d35a6a.jpg" alt="Slide 3">
+    <img src="https://i.postimg.cc/DwJYFD4W/Ideal-Institute-of-Technology-IIT-Ghaziabad-1-395c2d10ea.jpg" alt="Slide 4">
+  </div>
 
+  <div class="content">
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Fire Logo" class="logo">
     <h1>🔥 Boss Fire 🔥</h1>
     <p>Cricket vibes, winning predictions & more!</p>
-    
-    <!-- Join Telegram Button (same window) -->
     <a href="https://t.me/+UaaP8C-eQr1lMDFl" class="btn">Join Telegram</a>
   </div>
 
-  <!-- Disclaimer -->
   <div class="disclaimer">
     This website is for cricket discussion and insights only. No financial or betting advice is offered.<br><br>
     Strictly – tips for entertainment purpose only
   </div>
+
+  <script>
+    // 🔄 Smooth & Fast Slideshow
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000); // ⏱️ Change every 5 seconds
+  </script>
 </body>
 </html>
